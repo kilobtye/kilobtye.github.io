@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,
+                                 maximum-scale=1.0, user-scalable=no">
+  <title>无法访问 http://example.com/</title>
+  <style>
+body {
+  background-color: #E6E6E6;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  margin: 50px 40px 20px 40px;
+}
+
+#main-frame-error {
+  margin: auto;
+  max-width: 540px;
+  min-width: 200px;
+}
+
+#box {
+  background-color: #fbfbfb;
+  border: 1px solid #AAA;
+  border-bottom: 1px solid #888;
+  border-radius: 3px;
+  color: black;
+  box-shadow: 0px 2px 2px #AAA;
+}
+
+#content-top #buttons,
+#content-top h1 {
+  color: #666;
+  margin: 10px 0px 25px 0px;
+  font-weight: normal;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#content-top h1 {
+  padding-top: 46px;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAQAAAD9sOO8AAAASUlEQVR4Xu3SMQoAIAzFUO/o/c+iY4fSSfgQyesgOESHrs9I0j7TEOL9pk5i/OmB/s9IvAYQH6DjxmtTWPEWBcS52zJPIJ4lSRfUZeB1c/cgSwAAAABJRU5ErkJggg==') no-repeat top center;
+}
+
+h2 {
+  color: #666;
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+a {
+  color: #15c;
+  text-decoration: none;
+}
+
+#content-top {
+  margin: 20px 20px 20px 25px;
+}
+
+#help-box-outer {
+  overflow: hidden;
+  transition: height ease-in 218ms;
+}
+
+#help-box-inner {
+  background-color: #f9f9f9;
+  border-top: 1px solid #EEE;
+  color: #444;
+  padding: 25px 20px;
+  text-align: start;
+}
+
+#suggestions {
+  margin-top: 15px;
+}
+
+button {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  color: #444;
+  margin: 0px 5px;
+  min-height: 29px;
+  min-width: 65px;
+  padding: 8px 13px;
+  background-image: linear-gradient(#ededed, #ededed 38%, #dedede);
+  text-shadow: 0 1px 0 rgb(240, 240, 240);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.75);
+}
+
+button:hover {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #000;
+  background-image:linear-gradient(#f0f0f0, #f0f0f0 38%, #e0e0e0);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+}
+
+button:active {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #444;
+  background-image:linear-gradient(#e7e7e7, #e7e7e7 38%, #d7d7d7);
+  box-shadow: none;
+}
+
+#reload-button {
+  color: #fff;
+  background-image: linear-gradient(#5d9aff, #5d9aff 38%, #5891f0);
+  border: 1px solid rgba(45, 102, 195, 1);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+#reload-button:hover {
+  background-image: linear-gradient(#659efd, #659efd 38%, #6097f1);
+  border: 1px solid rgba(45, 102, 195, 1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+#reload-button:active {
+  background-image: linear-gradient(#6095ed, #6095ed 38%, #6095ed);
+  border: 1px solid rgb(38, 84, 160);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+.suggestions {
+  margin-top: 18px;
+}
+
+.suggestion-header {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.suggestion-body {
+  color: #777;
+}
+
+.error-code {
+  color: #A0A0A0;
+  margin-top: 15px;
+}
+</style>
+  <script>
+
+function toggleHelpBox() {
+  var helpBoxOuter = document.getElementById('help-box-outer');
+  helpBoxOuter.classList.toggle('hidden');
+  var moreLessButton = document.getElementById('more-less-button');
+  if (helpBoxOuter.classList.contains('hidden')) {
+    moreLessButton.innerHTML = "更多";
+  } else {
+    moreLessButton.innerHTML = "收起";
+  }
+}
+
+</script>
+</head>
+<body>
+  <div id="main-frame-error">
+    <div id="box">
+      <div id="content-top">
+        <h1>
+          <span>无法显示此网页</span>
+        </h1>
+        <div id="buttons" >
+          <button id="reload-button">重新加载</button>
+          <button id="more-less-button" onclick="toggleHelpBox()">更多</button>
+        </div>
+      </div>
+      <div id="help-box-outer" class="hidden" >
+        <div id="help-box-inner" >
+          <div>
+            <span>与 <strong>example.com</strong> 的连接已中断。</span>
+          </div>
+          <div class="suggestions">
+            <div class="suggestion-header">检查您的互联网连接状况。</div>
+            <div class="suggestion-body">请检查您的网线是否插好，并重新启动您在使用的任何路由器、调制解调器或其他网络设备。</div>
+          </div><div class="suggestions">
+            <div class="suggestion-header">对防火墙或防病毒软件进行设置，以允许 Chrome 访问该网络。</div>
+            <div class="suggestion-body">如果它已被列为允许访问网络的程序，请尝试将其从列表中删除，然后再重新添加。</div>
+          </div><div class="suggestions">
+            <div class="suggestion-header">如果您使用代理服务器…</div>
+            <div class="suggestion-body">请检查您的代理设置，或与网络管理员联系以核实代理服务器是否运转正常。如果您认为自己使用的不是代理服务器，请执行以下操作：
+          依次转到 Chrome 菜单 &gt;“设置”&gt;“显示高级设置...”&gt;“更改代理服务器设置...”&gt;“LAN 设置”，然后取消选中“为 LAN 使用代理服务器”。</div>
+          </div>
+          <div class="error-code">错误代码：ERR_CONNECTION_RESET</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>页面载入出错</title>
+    <link rel="icon" type="image/png" id="favicon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAq5JREFUeNqMk19IU1Ecx3/37t5uXmRuKyndalMpFcl0NHFE0UMOVGIP0hqh5FPTiVRKTCeIPQh7EHwIcWSLkBFBPQYFUY+9SS4RQdLNP0Q6y+sftqn33tPv3FBIV3TYh/Pbub/f93zPj3MYQghkGwzDmHEqR3aRGcxLZsvjRkdHjyz6/f4iu91+c2hoqEWSpFRHR0cUBSPd3d2pIwImkymbcPnIyIhPPL5anKfXQ39//4/29vYJnuc/HU5kDy94vd7Kzs7ORqv1dPHmah+k10Pgcrnqq6urr4ZCIcsRB/F44uBPb29PDt29q6vrdmL+GVReYCCzvQKzyx9gcHCwuaGhYcJoNC7/y0FFJBJp4bktQ17ua2j0COC9K8Ax+QmUlFgrPB6PKxAIlGUVwN3zzWazs6mp6Xp8LgRnLTxkMgBb2wDnbTJ8W3wF6KyFOozH47APi5aAQj+MjT1tln5OCrbCL0BkBtLptAZR98DIvgBBkE+hA3c4HL70h4O2Nl9RXV3dNYfDXjM/EwS9yIGSzhwIZNaTcFKQYPXrY2htbfUWFBQ4UUTUBBRF1XYfGHh0ZynxFsqsEuxIK7CzsY7WNzXIHmgU8h9hLTktBIPBeqypEkURGAwqfb42X0/gvj/x+QaUntnEJaL9FhZ1mk1LvgJ4ClDxTs4mrWBzRgEb2huLxaJU4NbkZCy8thQ1lOrH8Q4TvMYAG1sqeB/magJvhlOaANnDvqQIfDf2wfaubdrtdj9gHY4al14vGHI2xkHJEFCx8wqi7tD3wGrQmBZTER5NK3PDUHXxQgX24gqHb4lRsQ2W2pfAsizodBQdiBi/f4eFNAHPo2LSbwick3EmWu909AiXa2ud90ymEwae54DjKDptpoK0SFEUjf1YlmVYwDE1NfWc+dtz/t/xS4ABAFPwJo86gIiiAAAAAElFTkSuQmCC" />
+    <style>
+html {
+  background: #f0f0f0;
+}
+
+body {
+  margin: 0;
+  padding: 0 1em;
+  font-size: 12px;
+}
+
+h1 {
+  margin: 0 0 .6em 0;
+  border-bottom: 1px solid #e3e3e3;
+  font-size: 160%;
+}
+
+ul, ol {
+  margin: 0;
+  margin-left: 1.5em;
+  padding: 0;
+}
+
+ul > li, ol > li {
+  margin-bottom: .5em;
+}
+
+ul {
+  list-style: square;
+}
+
+#errorPageContainer {
+  position: relative;
+  min-width: 13em;
+  max-width: 52em;
+  margin: 4em auto;
+  border: 1px solid #a0a0a0;
+  border-radius: 10px;
+  padding: 3em;
+  padding-left: 30px;
+  background: url("data:image/png;base64,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") left 0 no-repeat white;
+  background-origin: content-box;
+}
+
+#errorTitle {
+  margin-left: 80px;
+}
+
+#errorLongContent {
+  margin-left: 80px;
+}
+
+#errorShortDesc > p {
+  overflow: auto;
+  border-bottom: 1px solid #e3e3e3;
+  padding-bottom: 1em;
+  font-size: 130%;
+  white-space: pre-wrap;
+}
+
+#errorLongDesc {
+  padding-right: 3em;
+  font-size: 110%;
+}
+
+#errorLongDesc > p {
+}
+
+#errorTryAgain {
+  margin-top: 2em;
+  margin-left: 80px;
+}
+    </style>
+  </head>
+
+  <body>
+    <div id="errorPageContainer">    
+      <div id="errorTitle">
+        <h1 id="errorTitleText">连接被重置</h1>
+      </div>
+      
+      <div id="errorLongContent">
+        <div id="errorShortDesc">
+          <p id="errorShortDescText">载入页面时到服务器的连接被重置。</p>
+        </div>
+
+        <div id="errorLongDesc"><ul>
+  <li>此站点暂时不可用或者太忙。请稍后再试。</li>
+  <li>如果您无法载入任何页面，请检查您计算机的网络连接。</li>
+  <li>如果您的计算机或网络受到防火墙或者代理服务器的保护，请确认 Firefox 已被授权访问网络。</li>
+</ul>
+</div>
+      </div>
+      <button id="errorTryAgain">重试</button>
+    </div>
+  </body>
+</html>
