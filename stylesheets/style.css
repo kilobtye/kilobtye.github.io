@@ -1,0 +1,78 @@
+/*Colors
+  @colordef #4d4e53; text-black
+*/
+
+/*@Fonts
+  Open Sans Normal 400
+  Open Sans Bold 700
+*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+/*@Global Reset*/
+
+/*YUI 3.16.0 (build 76f0e08)
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/*/
+
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+
+/*@General Styles*/
+h1, h2, h2, h3, h4, h5, h6, p{
+  font-family:'Open Sans',sans-serif;
+  color:#4d4e53;
+}
+
+html, body{
+  background-color:#aaa;
+}
+
+header{
+  background-color:#444;
+  padding:30px 5%;
+}
+
+h1{
+  color:#fff;
+  font-weight:bold;
+  font-size:3em;
+  text-transform:capitalize;
+}
+
+h2{
+  color:#888;
+}
+
+a:link, a:visited, a:focus, a:active {
+  color: #6d6e73;
+}
+
+a:link:hover, a:link:focus, a:link:active {
+  color: #8d8e93;
+}
+
+.title a:link{
+  color:#fff;
+  text-decoration:none;
+}
+
+.container{
+  width:90%;
+  margin:30px auto;
+  background-color:#eee;
+  border-radius:30px;
+  overflow:auto;
+}
+
+.main{
+  margin:10px 30px;
+}
+
+.sub{
+  margin:10px 30px;
+}
+
+footer p{
+  text-align:center;
+  color:#888;
+}

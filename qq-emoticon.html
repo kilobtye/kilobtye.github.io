@@ -5,40 +5,8 @@
 <meta name="description" content="css replica of qq emoticon" />
 <meta name="keywords" content="qq,emoticon,emoji,emotion,icon,smiley,css,css3" />
 <title>QQ Emoticon</title>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 <style>
-html, body, h1, h2, h2, p{
-  margin:0px;
-  padding:0px;
-  font-family:'Open Sans',sans-serif;
-  color:#4d4e53;
-}
-
-html, body{
-  padding:0px;
-  background-color:#aaa;
-}
-
-header{
-  background-color:#444;
-  margin:0px;
-  padding:30px 5%;
-}
-
-h1{
-  margin:0px;
-  color:#fff;
-  font:bold 3em 'Open Sans',sans-serif;
-  text-transform:capitalize;
-}
-
-.container{
-  width:90%;
-  margin:30px auto;
-  background-color:#fff;
-  border-radius:30px;
-  overflow:auto;
-}
 
 .face{
   width:200px;
@@ -152,35 +120,30 @@ h1{
   float:left;
   clear:left;
 }
-
-footer p{
-  text-align:center;
-  color:#888;
-}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>QQ emoticon knockoff</h1>
+  <h1 class="title">QQ emoticon knockoff</h1>
 </header>
 
 <div class="container">
-	<div class="face smile">
-    
-    <div class="eye left-eye"></div>
-    <div class="eye right-eye"></div>
-    <div class="mouth"></div>
+  <div class="main">
+	<article>
+	<div class="face smile">   
+      <div class="eye left-eye"></div>
+      <div class="eye right-eye"></div>
+      <div class="mouth"></div>
+	  </div> 
+    <div class="face sad">  
+      <div class="eye left-eye"></div>
+      <div class="eye right-eye"></div>
+      <div class="mouth"></div>
 	</div>
-  
-	<div class="face sad">
-    
-    <div class="eye left-eye"></div>
-    <div class="eye right-eye"></div>
-    <div class="mouth"></div>
-	</div>
-
-  <p class="end">More is comming (or not)...</p>
+	<p class="end">More coming soon (or not)...</p>
+	</article>
+  </div>
 </div>
 
 <footer>
