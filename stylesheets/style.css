@@ -1,13 +1,14 @@
 /*Colors
   @colordef #4d4e53; text-black
+  @colordef #3d3e43; title-black
 */
 
 /*@Fonts
   Open Sans Normal 400
   Open Sans Bold 700
 */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
-
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+*/
 /*@Global Reset*/
 
 /*YUI 3.16.0 (build 76f0e08)
@@ -18,7 +19,8 @@ http://yuilibrary.com/license/*/
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
 
 /*@General Styles*/
-h1, h2, h2, h3, h4, h5, h6, p{
+h1, h2, h2, h3, h4, h5, h6, p, a{
+  font-size:16px;
   font-family:'Open Sans',sans-serif;
   color:#4d4e53;
 }
@@ -29,31 +31,74 @@ html, body{
 
 header{
   background-color:#444;
-  padding:30px 5%;
-}
-
-h1{
-  color:#fff;
-  font-weight:bold;
-  font-size:3em;
-  text-transform:capitalize;
-}
-
-h2{
-  color:#888;
 }
 
 a:link, a:visited, a:focus, a:active {
-  color: #6d6e73;
+  color:#6d6e73;
 }
 
 a:link:hover, a:link:focus, a:link:active {
-  color: #8d8e93;
+  color:#8d8e93;
 }
 
-.title a:link{
+nav li>a{
+    display:block;
+}
+
+.header .hgroup{
+  display:block;
+  float:left;
+  margin:10px 7.25%;
+  cursor:default;
+}
+
+.header h1{
   color:#fff;
+  font-weight:bold;
+  font-size:2.5em;
+  text-transform:capitalize;
+  letter-spacing: 0.1em;
+  text-shadow:2px 2px 3px black;
+}
+
+.header h1:hover{
+  text-shadow:1px 1px 3px black, 0 0 0.2em white;
+}
+
+.header h2{
+  font-size:1.5em;
+  color:#888;
+  letter-spacing: 0.1em;
+  text-shadow:1px 1px 2px black;
+}
+
+.header nav{
+  display:block;
+  float:right;
+  margin:16px 7.25%;
+}
+
+.header nav ul>li{
+  float:left;
+}
+
+.header nav ul>li>a{
+  display:block;
+  letter-spacing:0.05em;
+  font-size:1.5em;
+  padding:10px 15px;
   text-decoration:none;
+  border-radius:10px;
+  text-shadow:0px 0px 2px black;
+}
+
+.header nav ul>li>a:hover{
+  background-color:#555;
+}
+
+.header{
+  overflow:auto;
+  width:100%;
 }
 
 .container{
@@ -65,7 +110,28 @@ a:link:hover, a:link:focus, a:link:active {
 }
 
 .main{
-  margin:10px 30px;
+  width:95%;
+  margin:10px auto;
+}
+
+.main h1{
+  color:#3d3e43;
+  font-weight:bold;
+  font-size:1.5em;
+  text-transform:capitalize;
+  margin:0.5em 0;
+}
+
+.main h2{
+  color:#3d3e43;
+  font-weight:bold;
+  font-size:1.2em;
+  text-transform:capitalize;
+  margin:0.5em 0;
+}
+
+.main p{
+  margin:0.5em 0;
 }
 
 .sub{
