@@ -7,7 +7,7 @@
 <title>QQ Emoticon</title>
 <link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 <style>
-
+/**** base yellow face ****/
 .face{
   width:200px;
   height:200px;
@@ -23,6 +23,8 @@
   border:3px solid #d0a020;
   box-shadow: 3px 3px 3px 0px #bbb, inset 3px 3px 5px 0px rgba(255, 255, 255, 0.50);
 }
+
+/**** smile and sad ****/
 
 @keyframes blink{
  0% {transform:scale(1,1);}
@@ -115,6 +117,104 @@
   margin-left:-65px;
 }
 
+/**** big-smile ****/
+
+@keyframes shake{
+ 0% {transform:translateY(10px);}
+ 100% {transform:translateY(0);}
+}
+
+@-moz-keyframes shake{
+ 0% {-moz-transform:translateY(10px);}
+ 100% {-moz-transform:translateY(0);}
+}
+
+@-webkit-keyframes shake{
+ 0% {-webkit-transform:translateY(10px);}
+ 100% {-webkit-transform:translateY(0);}
+}
+
+.big-smile.face{
+  -webkit-animation: shake 200ms linear infinite alternate;
+  animation: shake 200ms linear infinite alternate;
+}
+
+.eye2{
+  width:30px;
+  height:20px;
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+  position:absolute;
+  top:40px;
+  border-top:5px solid #904b00;
+  border-left:5px solid #904b00;
+  border-right:5px solid #904b00;
+  border-bottom:5px solid rgba(0,0,0,0);
+}
+
+.eye2:after{
+  content:"";
+  width:30px;
+  height:10px;
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+  border-top:5px solid #904b00;
+  border-left:5px solid #904b00;
+  border-right:5px solid #904b00;
+  border-bottom:5px solid rgba(0,0,0,0);
+  position:absolute;
+  top:-50px;
+}
+
+.eye2.left-eye{
+  left:40px;
+}
+
+.eye2.right-eye{
+  right:45px;
+}
+
+.eye2.left-eye:after{
+  right:5px;
+}
+
+.eye2.right-eye:after{
+  left:5px;
+}
+
+.big-smile .mouth{
+  width:150px;
+  height:75px;
+  border-bottom-left-radius:75px;
+  border-bottom-right-radius:75px;
+  border:7px solid #904b00;
+  position:absolute;
+  bottom:15px;
+  left:50%;
+  margin-left:-85px;
+  background-color:#fff;
+  overflow:hidden;
+}
+
+.big-smile .mouth:before, .big-smile .mouth:after{
+  content:"";
+  width:27px;
+  height:80px;
+  border:7px solid #904b00;
+  position:absolute;
+  top:-8px;
+}
+
+.big-smile .mouth:before{
+  left:20px;
+}
+
+.big-smile .mouth:after{
+  right:20px;
+}
+
+/**** end ****/
+
 .end{
   padding:30px;
   float:left;
@@ -138,7 +238,7 @@
 <div class="container">
   <div class="main">
 	<article>
-	<div class="face smile">   
+	  <div class="face smile">   
       <div class="eye left-eye"></div>
       <div class="eye right-eye"></div>
       <div class="mouth"></div>
@@ -147,7 +247,12 @@
       <div class="eye left-eye"></div>
       <div class="eye right-eye"></div>
       <div class="mouth"></div>
-	</div>
+	  </div>
+    <div class="face big-smile">  
+      <div class="eye2 left-eye"></div>
+      <div class="eye2 right-eye"></div>
+      <div class="mouth"></div>
+	  </div>
 	<p class="end">More coming soon (or not)...</p>
 	</article>
   </div>
