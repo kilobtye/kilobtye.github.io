@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>random noise</title>
+    <meta name="description" content="">
+    <meta name="author" content="zxz">
+    
+    <style>
+body div{
+  margin: auto;
+  width: 300px;
+}
+
+h1, body div div{
+  text-align: center;
+}
+
+button {
+  margin: 10px;
+}
+
+canvas {
+  border: 1px solid black;
+  margin: auto;
+  width: 300px;
+  transition: opacity 0.3s;
+}
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <header>
+        <h1>random noise</h1>
+      </header>
+      
+      <div>
+        <button onclick="execute()">start</button>
+        <button onclick="stop()">stop</button>
+        <canvas id="can"></canvas>
+      </div>
+      
+      <footer>
+      </footer>
+    </div>
+    <script src="functions.js"></script>
+    <script src="drawimg.js"></script>
+  </body>
+</html>
