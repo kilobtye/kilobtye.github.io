@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>我的进度条</title>
+		<style type="text/css">
+h1{
+	width: 600px;
+	margin: 10px auto;
+	text-align: center;
+}
+#d1 {
+	width:600px;
+	margin: 10px auto;
+	position: relative;
+}
+#toolip {
+	display: none;
+	position: absolute;
+	border: 1px solid #000;
+	border-radius: 3px;
+	background-color: #fff;
+	padding: 3px;
+}
+		</style>
+	</head>
+	<body>
+		<h1>我的进度条</h1>
+		<div id="d1">
+			<p id="toolip"></p>
+			<canvas id="c1" width="600" height="1700"></canvas>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+window.onload = function () {
+	var div = document.getElementById("d1");
+	div.addEventListener("mousemove", mmove, true);
+	div.addEventListener("mouseenter", menter, true);
+	div.addEventListener("mouseleave", mleave, true);
+	
+	var can = document.getElementById("c1");
+	var ctx = can.getContext("2d");
+
+	var toolip = document.getElementById("toolip");
+
+	var i, j;
+	
+	var size = 5, margin = 1;
+	
+	var cols = Math.floor(can.width / (size + margin));
+	
+	var pos = {x:0, y:0};
+	
+	var msperday = 24 * 60 * 60 * 1000;
+	var begin = Date.parse("Jan 01, 1990");
+	
+	var birth = Date.parse("Mar 22, 1991");
+	var birthIdx = (birth - begin) / msperday;
+	
+	var now = Date.now();
+	var nowIdx = Math.floor((now - begin) / msperday);
+	var nowPos, nowColor = 'red';
+	
+	var liveYear = 70;
+	var death = birth + (liveYear * 365 + 18) * msperday;
+	var deathIdx = (death - begin) / msperday;	
+	
+	var focusedIdx = 0;
+	
+	function drawBlock(k) {
+		if (begin + k * msperday < birth) {
+			ctx.fillStyle = '#eee'; //grey
+		} else if (begin + k * msperday < now - msperday) {
+			ctx.fillStyle = '#ff7575'; //red
+		} else if (begin + k * msperday < now) {
+			ctx.fillStyle = '#ff7575'; //red
+			nowPos = {x:pos.x, y:pos.y};
+		}else if (begin + k * msperday <= death) {
+			ctx.fillStyle = '#00EC00'; //green
+		} else {
+			ctx.fillStyle = '#eee'; //grey
+		}
+		ctx.fillRect(pos.x, pos.y, size, size);
+	}
+	
+	function movePos() {
+		if (pos.x + size * 2 + margin <= can.width){
+			pos.x += size + margin;
+		} else {
+			pos.x = 0;
+			pos.y = pos.y + size + margin;
+		}
+	}
+	
+	function menter() {
+		toolip.style.display = 'block';
+	}
+	
+	function mleave() {
+		toolip.style.display = 'none';
+	}
+	
+	function mmove(e) {
+		var rect = can.getBoundingClientRect();
+		var mousePos = {
+			x: e.clientX - rect.left,
+			y: e.clientY - rect.top
+		};
+		var idx = getIndex(mousePos);
+		if (idx != focusedIdx) {
+			focusedIdx = idx;
+			var date = new Date(begin + idx * msperday);
+			
+			toolip.style.top = (mousePos.y - 50) + 'px';
+			toolip.style.left = mousePos.x + 'px';
+			
+			if (idx == birthIdx) {
+				toolip.innerHTML = '我的出生日 ' + date.toLocaleDateString();
+			} else if (idx == nowIdx) {
+				toolip.innerHTML = '今天 ' + date.toLocaleDateString();
+			} else if (idx == deathIdx) {
+				toolip.innerHTML = liveYear + '大寿！ ' + date.toLocaleDateString();
+			} else {
+				toolip.innerHTML = date.toLocaleDateString();
+			}
+		}
+	}
+	
+	function getIndex(pos) {
+		var y = Math.floor(pos.y / (size + margin));
+		var x = Math.floor(pos.x / (size + margin));
+		return y * cols + x;
+	}
+	
+	function beep() {
+		if (nowColor == 'red') {
+			nowColor = 'Red';
+			ctx.fillStyle = '#ff5555';
+		} else {
+			nowColor = 'red';
+			ctx.fillStyle = '#ff7575';
+		}
+		ctx.fillRect(nowPos.x, nowPos.y, size, size);
+		setTimeout(beep, 500);
+	}
+	setTimeout(beep, 500);
+	
+	for (i = 0; ; i++){
+		drawBlock(i);
+		movePos();
+		if (pos.y + size + margin > can.height) {
+			return;
+		}
+	}
+}
+		</script>
+	</body>
+</html>
