@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>clock</title>
+		
+		<style>
+.clock, .hand {
+	background-image: url(clock1.png);
+}
+
+.clock {
+	margin: 20px auto;
+	position: relative;
+	width: 760px;
+	height: 730px;
+	background-position: -198px -68px;
+}
+
+.hand {
+	display: none;
+	position: absolute;
+	left: 356px;
+	top: 114px;
+	width: 50px;
+	height: 350px;
+	
+	-webkit-transform-origin: center 254px;
+	-moz-transform-origin: center 254px;
+	-ms-transform-origin: center 254px;
+	transform-origin: center 254px;
+}
+
+.hour {
+	background-position: -112px 377px;
+}
+
+.minute {
+	background-position: -63px 377px;
+}
+
+.second {
+	background-position: -17px 377px;
+	-webkit-transition: -webkit-transform 0.5s;
+	-moz-transition: -moz-transform 0.5s;
+	-ms-transition: -ms-transform 0.5s;
+	transition: transform 0.5s;
+}
+		</style>
+	</head>
+	<body>
+		<div class="clock">
+			<div class="hour hand"></div>
+			<div class="minute hand"></div>
+			<div class="second hand"></div>
+		</div>
+		<script>
+var hourHand = document.querySelector(".clock .hour"),
+  minuteHand = document.querySelector(".clock .minute"),
+  secondHand = document.querySelector(".clock .second");
+
+update();
+hourHand.style.display = "block";
+minuteHand.style.display = "block";
+secondHand.style.display = "block";
+
+function update() {
+	var time = new Date();
+	var hh = time.getHours(),
+	  mm = time.getMinutes(),
+	  ss = time.getSeconds();
+	
+	var hhDeg = 360 * (hh * 3600 + mm * 60) / (12 * 3600),
+	  mmDeg = 360 * (mm * 60 + ss) / 3600,
+	  ssDeg = 6 * (hh * 3600 + mm * 60 + ss);
+	  //BUG: 23:59:59 -> 00:00:00 second hand transition will go wild!
+	
+	hourHand.style.transform = "rotate(" + hhDeg + "deg)";
+	hourHand.style.webkitTransform = "rotate(" + hhDeg + "deg)";
+	hourHand.style.MozTransform = "rotate(" + hhDeg + "deg)";
+	hourHand.style.msTransform = "rotate(" + hhDeg + "deg)";
+	
+	minuteHand.style.transform = "rotate(" + mmDeg + "deg)";
+	minuteHand.style.webkitTransform = "rotate(" + mmDeg + "deg)";
+	minuteHand.style.MozTransform = "rotate(" + mmDeg + "deg)";
+	minuteHand.style.msTransform = "rotate(" + mmDeg + "deg)";
+	
+	secondHand.style.transform = "rotate(" + ssDeg + "deg)";
+	secondHand.style.webkitTransform = "rotate(" + ssDeg + "deg)";
+	secondHand.style.MozTransform = "rotate(" + ssDeg + "deg)";
+	secondHand.style.msTransform = "rotate(" + ssDeg + "deg)";
+
+	setTimeout(update, 200);
+}
+		</script>
+	</body>
+</html>
