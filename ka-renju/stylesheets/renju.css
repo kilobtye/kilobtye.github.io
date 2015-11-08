@@ -1,0 +1,276 @@
+.renju-container{
+  width:900px;
+  margin: 0 auto;
+  height:800px;
+  background-color:#555;
+  padding:20px;
+  position:relative;
+}
+
+.renju-header{
+  margin:20px;
+  background-color:#ccc;
+  font-family:Garamond, Georgia, serif;
+}
+
+.renju-header h1{
+  font-size:3em;
+  margin:5px;
+  text-transform:uppercase;
+}
+
+.renju-header h2{
+  font-size:2em;
+  margin:5px;;
+}
+.renju-board, .renju-aside, .renju-message{
+  font-family:Helvetica, Arial, sans-serif;
+}
+
+.renju-board-container{
+  margin:20px;
+  background-color:#fd9;
+  width:640px;
+  height:640px;
+  float:left;
+}
+
+.renju-board-left-index{
+  margin:20px 0;
+  width:20px;
+  height:600px;
+  float:left;
+}
+
+.renju-left-index{
+  width:20px;
+  height:40px;
+  float:left;
+  text-align:center;
+  line-height:40px;
+}
+
+.renju-board-bottom-index{
+  margin:0;
+  width:600px;
+  height:20px;
+  float:left;
+}
+
+.renju-bottom-index{
+  width:40px;
+  height:20px;
+  float:left;
+  text-align:center;
+  line-height:20px;
+}
+
+.renju-board{
+  margin:20px;
+  margin-left:0;
+  margin-bottom:0;
+  background-color:#fd9;
+  background-image:url("renju-board.svg");
+  width:600px;
+  height:600px;
+  float:left;
+}
+
+.renju-board-container:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.renju-column{
+  float:left;
+}
+
+.renju-position{
+  width:40px;
+  height:40px;
+  float:left;
+  position:relative;
+}
+
+.renju-stone{
+  box-sizing:border-box;
+  width:90%;
+  height:90%;
+  top:5%;
+  left:5%;
+  position:absolute;
+  text-align:center;
+  line-height:36px;
+  cursor:default;
+}
+
+.renju-stone:hover{
+  border:1px dashed gray;
+}
+
+.renju-stone.white{
+  border-radius:50%;
+  background-color:white;
+  color:black;
+}
+
+.renju-stone.black{
+  border-radius:50%;
+  background-color:black;
+  color:white;
+}
+
+.renju-stone.white:hover, .renju-stone.black:hover{
+  border:none;
+}
+
+.renju-stone.last, .renju-stone.last:hover{
+  box-shadow: 0 0 3px #0f0;
+}
+
+.renju-message{
+  display:none;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:rgba(0,0,0,0.2);
+}
+
+.renju-message .middle{
+  display:table-cell;
+  vertical-align:middle;
+}
+
+.renju-message .msg-box{
+  margin-left:auto;
+  margin-right:auto;
+  width:500px;
+  text-align:center;
+  background-color:rgba(32,32,32,0.8);
+  border:2px solid #555;
+  border-radius: 5px;
+  position:relative;
+}
+
+.renju-message .msg-box h3{
+  display:inline-block;
+  margin:20px;
+  background-color:#3d3;
+  border-radius: 5px;
+  border:2px solid #040;
+  text-decoration:none;
+  text-align:center;
+  font-size:2em;
+  color:black;
+  padding:5px;
+}
+
+.renju-message .msg-box p{
+  display:inline-block;
+  margin:10px;
+  background-color:#3d3;
+  border-radius: 5px;
+  border:2px solid #040;
+  text-decoration:none;
+  text-align:center;
+  font-size:1em;
+  color:black;
+  padding:5px;
+  width:350px;
+}
+
+.renju-message .msg-box a{
+  display:inline-block;
+  margin:10px;
+  background-color:#dd9;
+  border-radius: 5px;
+  border:2px solid #aa0;
+  text-decoration:none;
+  text-align:center;
+  font-size:0.8em;
+  color:black;
+  padding:5px;
+}
+
+.renju-message .msg-box img{
+  margin:5px auto;
+}
+
+.renju-message .msg-box a:hover{
+  background-color:#fd9;
+}
+
+.renju-message .msg-box .close{
+  position:absolute;
+  right:5px;
+  width:20px;
+  height:20px;
+  font-size:1em;
+}
+
+.renju-aside{
+  margin:20px;
+  background-color:#ccc;
+  float:right;
+  width:150px;
+  border-radius: 5px;
+}
+
+.renju-aside a{
+  display:block;
+  margin:10px;
+  background-color:#dd9;
+  border-radius: 5px;
+  border:2px solid #aa0;
+  text-decoration:none;
+  text-align:center;
+  font-size:0.8em;
+  color:black;
+}
+
+.renju-aside a:hover{
+  background-color:#fd9;
+}
+
+.renju-aside .player{
+  margin:10px;
+  height:100px;
+  background-color:#dd9;
+  border-radius:5px;
+  border:2px solid #aa0;
+  text-align:center;
+  font-size:0.8em;
+}
+
+.renju-aside .player .player-name{
+  margin:3px;
+  font-family:Garamond, Georgia, serif;
+  font-size:2em;
+}
+
+.renju-aside .player.thinking{
+  border-color:#f50;
+  background-color:#fc8;
+}
+
+.renju-aside .player .icon{
+  margin:10px;
+  float:left;
+  width:20px;
+  height:20px;
+  border:1px solid #000;
+  border-radius:50%;
+}
+
+.renju-aside .player .icon.black{
+  background-color:black;
+}
+
+.renju-aside .player .icon.white{
+  background-color:white;
+}
