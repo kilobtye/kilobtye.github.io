@@ -1,0 +1,137 @@
+//@font-face {
+//  font-family: "Wyue GutiFangsong";
+//  src: url("Wyue-GutiFangsong-NC_deliverable.otf");
+//}
+
+body {
+  text-align:center;
+}
+
+.source {
+  display: none;
+}
+
+.page {
+  background-color:#FFF5AA;
+  margin: 10px auto;
+  padding: 100px 50px 100px 50px;
+  display: inline-block;
+  font-family: "Wyue GutiFangsong", serif;
+}
+
+.content {
+  border: 6px solid black;
+  padding: 5px;
+  white-space: nowrap;
+  direction: rtl;
+}
+
+.column {
+  display: inline-block;
+  border: 1px solid black;
+  margin: -0.5px;
+  width: 30px;
+  vertical-align: top;
+}
+
+.column-big {
+  display: inline-block;
+  border: 1px solid black;
+  margin: -0.5px;
+  width: 60px;
+}
+
+.fishtail-1{
+  position: relative;
+  top: 10px;
+  background-size: 100%;
+  background-image: url("img/fishtail-1.svg");
+}
+
+.fishtail-1-down{
+  position: relative;
+  top: -10px;
+  background-size: 100%;
+  background-image: url("img/fishtail-1-down.svg");
+}
+
+.fishtail-2{
+  position: relative;
+  top: 10px;
+  background-size: 100%;
+  background-image: url("img/fishtail-2.svg");
+}
+
+.fishtail-2-down{
+  position: relative;
+  top: -10px;
+  background-size: 100%;
+  background-image: url("img/fishtail-2-down.svg");
+}
+
+.punc-circle-red{
+  background-size: 100%;
+  background-image: url("img/punc-circle-red.svg")
+}
+
+.punc-comma-red{
+  background-size: 100%;
+  background-image: url("img/punc-comma-red.svg")
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.cell-big {
+  width: 60px;
+  height: 60px;
+}
+
+.cell-small {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+
+.cell-small-top-left {
+  top: 0;
+  left: 0;
+}
+
+.cell-small-top-right {
+  top: 0;
+  right: 0;
+}
+
+.cell-small-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.cell-small-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.char {
+  text-align: center;
+  font-size: 28px;
+  line-height: 30px;
+}
+
+.char-big {
+  text-align: center;
+  font-size: 56px;
+  line-height: 60px;
+
+}
+
+.char-small {
+  text-align: center;
+  font-size: 15px;
+  line-height: 15px;
+}
+
